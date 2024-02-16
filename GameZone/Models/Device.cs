@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GameZone.Models
+﻿namespace GameZone.Models
 {
     public class Device : BaseEntity
     {

@@ -1,13 +1,17 @@
-using GameZone.Data;
-using Microsoft.EntityFrameworkCore;
+
+
+using GameZone.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-    throw new InvalidOperationException("No Connection");
+    throw new InvalidOperationException("No Connection String Was Found");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(ConnectionString));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IGameService, GameService>();
+
 
 var app = builder.Build();
 

@@ -9,7 +9,7 @@ namespace GameZone.Models
 
         [MaxLength(500)]
         public string Cover { get; set; } = string.Empty;
-
+        
         public int CategoryId { get; set; }
 
         public Category Category { get; set; } = default!;
